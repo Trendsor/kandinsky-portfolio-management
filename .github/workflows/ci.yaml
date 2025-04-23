@@ -1,0 +1,15 @@
+name: Portfolio Management CI
+on:
+  pull_request:
+    paths:
+      - 'charts/portfolio-management/**'
+      - 'src/**'
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Tests
+        run: pytest
+      - name: Lint Helm Chart
+        run: helm lint charts/portfolio-management

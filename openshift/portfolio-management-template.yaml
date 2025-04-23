@@ -1,0 +1,19 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: portfolio-management-template
+objects:
+  - kind: DeploymentConfig
+    apiVersion: v1
+    metadata:
+      name: portfolio-management
+    spec:
+      replicas: 2
+      template:
+        spec:
+          containers:
+            - name: portfolio-management
+              image: ${IMAGE_REGISTRY}/portfolio-management:v2.0.0
+parameters:
+  - name: IMAGE_REGISTRY
+    required: true

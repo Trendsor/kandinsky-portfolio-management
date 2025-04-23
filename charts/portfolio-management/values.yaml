@@ -1,0 +1,9 @@
+replicaCount: 2
+image:
+  repository: myregistry/portfolio-management
+  tag: v2.0.0
+service:
+  port: 7000
+database:
+  host: portfolio-db
+  port: 5432
